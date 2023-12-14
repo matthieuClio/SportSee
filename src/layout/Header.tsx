@@ -1,4 +1,5 @@
-import '../assets/sass/header.scss'
+// Style
+import './header.scss'
 
 export default function Header () {
     return (

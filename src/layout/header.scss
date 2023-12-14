@@ -4,14 +4,15 @@ $headerText: #E60000;
 $hearderLogo: #FF0101;
 $headerLink: #FFFFFFFF;
 
-// Header class
+// Class header
 .header {
     z-index: 2;
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 15px 10px 25px;
+    padding: 0 15px 0 25px;
+    height: 75px;
     background-color: $headerBackground;
 
     &__logo {
@@ -38,7 +39,6 @@ $headerLink: #FFFFFFFF;
         border: 2px solid blue;
         display: flex;
         justify-content: space-between;
-        padding: 0;
         min-width: 1000px;
         color: $headerLink;
     }

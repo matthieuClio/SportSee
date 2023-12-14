@@ -1,0 +1,55 @@
+// - VARIABLES -
+$menuBackground: #020203;
+$menuText: #FFFFFFFF;
+$menuIcon: #FFFFFFFF;
+
+.main-container {
+    border: 2px solid purple;
+    display: flex;
+    min-height: 800px;
+
+    // Class menu
+    &__menu {
+        border: 2px solid red;
+        width: 100px;
+        background-color: $menuBackground;
+        color: $menuText;
+        overflow: hidden;
+    
+        &__container {
+            border: 2Px solid green;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            height: 100%;
+    
+            &__icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 20px;
+                width: 64px;
+                height: 64px;
+                border-radius: 6px;
+                background-color: $menuIcon;
+                cursor: pointer;
+    
+                &__image {
+                    width: 36px;
+                    height: 32px;
+                }
+            }
+    
+            &__text {
+                position: absolute;
+                bottom: 100px;
+                border: 2px solid orange;
+                width: 140px;
+                transform: rotate(-90deg);
+                font-size: 12px;
+            }
+        }
+    }
+}
