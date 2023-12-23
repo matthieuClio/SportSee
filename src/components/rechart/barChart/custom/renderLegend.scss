@@ -1,0 +1,25 @@
+// - VARIABLES -
+
+.legend-container {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid red;
+    margin: 20px 0 80px 0;
+
+    &__title {
+        font-weight: bold;
+    }
+
+    &__legend {
+        display: flex;
+        align-items: center;
+
+        &__design-legend {
+            display: inline-block;
+            margin: 0 10px 0 30px;
+            width: 7px;
+            height: 7px;
+            border-radius: 10px;
+        }
+    }
+}

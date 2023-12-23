@@ -1,8 +1,25 @@
 // - VARIABLES -
+$profileFirstName: #FF0101;
 
 // Class profile
 .profile {
     border: 2px solid orange;
     margin-left: 70px;
-    height: 200px;
+    height: 100%;
+
+    &__first-name {
+        color: $profileFirstName;
+    }
+
+    &__container {
+        border: 2px solid purple;
+        display: flex;
+
+        &__chart {
+            border: 2px solid blue;
+            display: flex;
+            flex-wrap: wrap;
+            width: 1000px;
+        }
+    }
 }
