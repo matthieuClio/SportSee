@@ -18,11 +18,11 @@ export default function CustomLineChart (props: {
             bottom: 5 
         }}
         >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
+            <Legend verticalAlign="top" align="left"/>
+            <CartesianGrid strokeDasharray="0 3" fillOpacity={0.6} />
+            <XAxis dataKey="name" tickLine={false} axisLine={false}  />
+            <YAxis tickLine={false} hide={true} axisLine={false} />
             <Tooltip />
-            <Legend />
             <Line type="monotone" dataKey="pv" stroke="#8884d8" />
             <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
         </LineChart>

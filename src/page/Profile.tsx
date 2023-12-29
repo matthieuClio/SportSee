@@ -1,5 +1,8 @@
-// Style
-import './profile.scss'
+// React
+import { useEffect, useState } from 'react'
+
+// React router
+import { Params, useParams } from 'react-router-dom'
 
 // Charts component
 import CustomBarChart from '../components/rechart/barChart/CustomizedBarChart'
@@ -8,8 +11,15 @@ import CustomRadarChart from '../components/rechart/radarChart/CustomizedRadarCh
 import CustomizedSimpleRadialBarChart from '../components/rechart/simpleRadialBarChart/CustomizedRadialBarChart'
 
 // Customize chart component
+// - For customBarChart -
 import RenderLegend from '../components/rechart/barChart/custom/RenderLegend'
 import CustomToltip from '../components/rechart/barChart/custom/CustomizedToltip'
+
+// Style
+import './profile.scss'
+
+// Script
+import getData from '../script/getData'
 
 // Mocked data
 const data: { name : string, uv: number, pv: number, amt: number }[] = [
@@ -64,12 +74,34 @@ const radarData: { subject:string, "A": number, "B": number, "fullMark": number 
       "B": 85,
       "fullMark": 150
     }
-  ]
+]
 
 export default function Profile () {
+    const [dataUser, setDataUser] = useState(Array({data: {userInfos: {firstName: ''}}}))
+    const { userId }: Params<string> = useParams()
+
+    // After the first render
+    useEffect(() => {
+
+        // Define user data
+        async function fetchUserData () {
+            const apiData = await getData(userId)
+
+            // Will contain an array
+            // [0] -> apiDataUser
+            // [1] -> apiDataActivity
+            // [2] -> apiDataAverage
+            // [3] -> apiDataPerformance
+            setDataUser(apiData)
+
+        }
+
+        fetchUserData()
+    }, [userId])
+
     return (
         <main className="profile">
-            <h1>Bonjour <span className="profile__first-name">'Prénom'</span></h1>
+            <h1>Bonjour <span className="profile__first-name">{dataUser[0] && dataUser[0].data.userInfos.firstName}</span></h1>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
 
             <div className="profile__container">

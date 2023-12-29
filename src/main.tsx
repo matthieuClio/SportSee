@@ -6,13 +6,19 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import 'normalize.css'
 import './main.scss'
 
-// Components
-// import Profile from './components/profile'
+// Layout component
 import Header from './layout/Header'
 import Menu from './layout/Menu'
+
+// Page component
+import Interface from './page/Interface'
 import Profile from './page/Profile'
 
 const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Interface />
+  },
   {
     path: '/app',
     element: <>
@@ -21,7 +27,7 @@ const router = createBrowserRouter([
     </>,
     children: [
       {
-        path: 'profil',
+        path: 'profil/:userId',
         // element: <div style={{marginLeft: '100px'}}>Test</div>
         element: <Profile />
       }
