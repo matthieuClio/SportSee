@@ -79,7 +79,7 @@ const radarData: { subject:string, "A": number, "B": number, "fullMark": number 
 export default function Profile () {
     // Hook state
     const [dataUser, setDataUser]: any = useState(0)
-    
+
     // useState(
     //     [
     //         {
@@ -131,11 +131,12 @@ export default function Profile () {
             <div className="profile__container">
                 <div className="profile__container__chart">
                     <CustomizedBarChart data={dataUser[1] && dataUser[1].data.sessions} legendContent={RenderLegend} tooltipContent={CustomToltip} />
-                    <CustomizedLineChart data={data} />
+                    <CustomizedLineChart data={dataUser[2] && dataUser[2].data.sessions} />
                     <CustomizedRadarChart data={radarData} />
                     <CustomizedSimpleRadialBarChart data={data} />
                 </div>
 
+                {/* Performance */}
                 <ul>
                     <li>
                         Calories

@@ -6,6 +6,7 @@ export default function CustomizedLineChart (props: {
                                         ) {
     const { data } = props
 
+    // console.log(data)
     return (
         <LineChart 
         width={300}
@@ -23,8 +24,7 @@ export default function CustomizedLineChart (props: {
             <XAxis dataKey="name" tickLine={false} axisLine={false}  />
             <YAxis tickLine={false} hide={true} axisLine={false} />
             <Tooltip />
-            <Line type="monotone" dataKey="pv" stroke="#8884d8" />
-            <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+            <Line type="monotone" dataKey="sessionLength" stroke="#8884d8" />
         </LineChart>
     )
 }
