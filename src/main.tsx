@@ -28,7 +28,6 @@ const router = createBrowserRouter([
     children: [
       {
         path: 'profil/:userId',
-        // element: <div style={{marginLeft: '100px'}}>Test</div>
         element: <Profile />
       }
     ]

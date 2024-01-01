@@ -5,9 +5,9 @@ import { useEffect, useState } from 'react'
 import { Params, useParams } from 'react-router-dom'
 
 // Charts component
-import CustomBarChart from '../components/rechart/barChart/CustomizedBarChart'
-import CustomLineChart from '../components/rechart/lineChart/CustomizedLineChart'
-import CustomRadarChart from '../components/rechart/radarChart/CustomizedRadarChart'
+import CustomizedBarChart from '../components/rechart/barChart/CustomizedBarChart'
+import CustomizedLineChart from '../components/rechart/lineChart/CustomizedLineChart'
+import CustomizedRadarChart from '../components/rechart/radarChart/CustomizedRadarChart'
 import CustomizedSimpleRadialBarChart from '../components/rechart/simpleRadialBarChart/CustomizedRadialBarChart'
 
 // Customize chart component
@@ -27,13 +27,13 @@ const data: { name : string, uv: number, pv: number, amt: number }[] = [
       name: "Page A",
       uv: 4000,
       pv: 2400,
-      amt: 2400
+      amt: 2400,
     },
     {
       name: "Page B",
       uv: 3000,
       pv: 1398,
-      amt: 2210
+      amt: 2210,
     },
 ]
 
@@ -77,7 +77,30 @@ const radarData: { subject:string, "A": number, "B": number, "fullMark": number 
 ]
 
 export default function Profile () {
-    const [dataUser, setDataUser] = useState(Array({data: {userInfos: {firstName: ''}}}))
+    // Hook state
+    const [dataUser, setDataUser]: any = useState(0)
+    
+    // useState(
+    //     [
+    //         {
+    //             data: {
+    //                 id: 0,
+    //                 userInfos: {
+    //                     firstName: '',
+    //                     lastName: '',
+    //                     age: 0,
+    //                 },
+    //                 todayScore: 0,
+    //                 keyData: {
+    //                     calorieCount: 0,
+    //                     proteinCount: 0,
+    //                     carbohydrateCount: 0,
+    //                     lipidCount: 0,
+    //                 },
+    //             }
+    //         },
+    //     ]
+    // )
     const { userId }: Params<string> = useParams()
 
     // After the first render
@@ -85,7 +108,9 @@ export default function Profile () {
 
         // Define user data
         async function fetchUserData () {
-            const apiData = await getData(userId)
+            
+            // Make call API
+            const apiData = await getData(userId) // getData from '../script/getData'
 
             // Will contain an array
             // [0] -> apiDataUser
@@ -93,7 +118,6 @@ export default function Profile () {
             // [2] -> apiDataAverage
             // [3] -> apiDataPerformance
             setDataUser(apiData)
-
         }
 
         fetchUserData()
@@ -106,9 +130,9 @@ export default function Profile () {
 
             <div className="profile__container">
                 <div className="profile__container__chart">
-                    <CustomBarChart data={data} legendContent={RenderLegend} tooltipContent={CustomToltip} />
-                    <CustomLineChart data={data} />
-                    <CustomRadarChart data={radarData} />
+                    <CustomizedBarChart data={dataUser[1] && dataUser[1].data.sessions} legendContent={RenderLegend} tooltipContent={CustomToltip} />
+                    <CustomizedLineChart data={data} />
+                    <CustomizedRadarChart data={radarData} />
                     <CustomizedSimpleRadialBarChart data={data} />
                 </div>
 

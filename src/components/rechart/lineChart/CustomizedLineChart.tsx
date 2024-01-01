@@ -1,6 +1,6 @@
 import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line } from "recharts"
 
-export default function CustomLineChart (props: { 
+export default function CustomizedLineChart (props: { 
                                                     data: { name: string, uv: number, pv: number, amt: number }[], 
                                                 }
                                         ) {

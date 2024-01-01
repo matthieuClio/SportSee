@@ -1,6 +1,6 @@
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend } from "recharts"
 
-export default function CustomRadarChart (props: { data: { subject:string, "A": number, "B": number, "fullMark": number }[]}) {
+export default function CustomizedRadarChart (props: { data: { subject:string, "A": number, "B": number, "fullMark": number }[]}) {
     const { data } = props
 
     return (
