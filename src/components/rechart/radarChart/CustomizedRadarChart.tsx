@@ -1,4 +1,8 @@
+// Rechart
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend } from "recharts"
+
+// script
+import specificFormat from "../../../script/specificFormat"
 
 export default function CustomizedRadarChart (props: { data: {
     "userId": 12,
@@ -20,26 +24,11 @@ export default function CustomizedRadarChart (props: { data: {
     ]
 }}) {
     const { data } = props
-    const radarChartData:Array<object> = []
-    // type OnlyKeys = keyof typeof data.kind;
+    let radarChartData:Array<object> = []
+    // type OnlyKeys = keyof typeof data.kind
 
-
-    // Only if data exist
-    if (data) {
-
-        // Defined specific object format
-        for (let count = 0; data.data.length > count; count++) {
-
-            // Create new object
-            const newObject = 
-            {
-                subject: data.data[count].kind,
-                A: data.kind[count+1 as keyof typeof data.kind],
-                fullMark: data.data[count].value
-            }
-            radarChartData.push(newObject)
-        }
-    }
+    // Defined specific object format
+    data && (radarChartData = specificFormat(data, radarChartData))
     
     return data && (
         <RadarChart outerRadius={90} width={300} height={250} data={radarChartData}>

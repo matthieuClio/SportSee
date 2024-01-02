@@ -2,7 +2,6 @@ import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line } from "r
 
 export default function CustomizedLineChart (props: { data: Array<object> }) {
     const { data } = props
-    console.log(data && data)
 
     return (
         <LineChart 

@@ -23,7 +23,7 @@ export default async function getData (idUser:string | undefined) {
         const responseAverage = await fetch(`${url + idUser}/average-sessions`)
         const apiDataAverage = await responseAverage.json()
 
-        const responsePerformance = await fetch(`${url + idUser}/average-sessions`)
+        const responsePerformance = await fetch(`${url + idUser}/performance`)
         const apiDataPerformance = await responsePerformance.json()
 
         // An array will contain all API call
