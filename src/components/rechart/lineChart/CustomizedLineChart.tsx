@@ -1,12 +1,9 @@
 import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line } from "recharts"
 
-export default function CustomizedLineChart (props: { 
-                                                    data: { name: string, uv: number, pv: number, amt: number }[], 
-                                                }
-                                        ) {
+export default function CustomizedLineChart (props: { data: Array<object> }) {
     const { data } = props
+    console.log(data && data)
 
-    // console.log(data)
     return (
         <LineChart 
         width={300}

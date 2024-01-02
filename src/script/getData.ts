@@ -3,11 +3,9 @@ import mockData from './mockData'
 export default async function getData (idUser:string | undefined) {
 
     // Use mock data
-    if (idUser === '1') {
-        
-       
+    if (idUser === '1') {  
+             
         return mockData
-
 
     } else {
         // Use API data
@@ -29,7 +27,7 @@ export default async function getData (idUser:string | undefined) {
         const apiDataPerformance = await responsePerformance.json()
 
         // An array will contain all API call
-        const apiData = [apiDataUser, apiDataActivity, apiDataAverage, apiDataPerformance]
+        const apiData = [[apiDataUser], [apiDataActivity], [apiDataAverage], [apiDataPerformance]]
 
         return apiData
     }
