@@ -2,9 +2,9 @@ export default function mockData () {
     
     // Use mock data
     const apiData =
-    [
+    {
         // User
-        [
+        apiDataUser: [
             {
                 "data": {
                     "id": 1,
@@ -16,7 +16,7 @@ export default function mockData () {
         ],
 
         // Activity
-        [
+        apiDataActivity: [
             {
                 "data": {
                     "userId":12,
@@ -34,7 +34,7 @@ export default function mockData () {
         ],
 
         // Average-sessions
-        [
+        apiDataAverage: [
             {
                 "data": {
                     "userId":12,
@@ -52,7 +52,7 @@ export default function mockData () {
         ],
 
         // Performance
-        [
+        apiDataPerformance: [
             {
                 "data": {
                     "userId": 12,
@@ -75,7 +75,7 @@ export default function mockData () {
                 }
             }
         ]
-    ]
+    }
 
     return apiData
 }

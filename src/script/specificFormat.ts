@@ -19,14 +19,14 @@ export default function specificFormat (data: {
 }, radarChartData: Array<object>) {
 
     // Defined specific object format
-    for (let count = 0; data.data.length > count; count++) {
+    for (let i = 0; data.data.length > i; i++) {
 
         // Create new object
         const newObject = 
         {
-            subject: data.data[count].kind,
-            A: data.kind[count+1 as keyof typeof data.kind],
-            fullMark: data.data[count].value
+            subject: data.data[i].kind,
+            A: data.kind[i+1 as keyof typeof data.kind],
+            fullMark: data.data[i].value
         }
         radarChartData.push(newObject)
     }

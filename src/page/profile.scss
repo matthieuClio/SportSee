@@ -1,5 +1,12 @@
 // - VARIABLES -
 $profileFirstName: #FF0101;
+$profileInfocontainer: #FBFBFB;
+$profileInfoBackground:#FBEAEA;
+
+// - FACTORED -
+.profile-icon-one {
+    background-color: $profileInfoBackground;
+}
 
 // Class profile
 .profile {
@@ -19,7 +26,22 @@ $profileFirstName: #FF0101;
             border: 2px solid blue;
             display: flex;
             flex-wrap: wrap;
-            width: 1000px;
+            width: 900px;
+        }
+
+        &__info {
+            border: 2px solid red;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: $profileInfocontainer;
+            
+            &__icon-background {
+                padding: 15px;
+                border-radius: 5px;
+            }
         }
     }
 }

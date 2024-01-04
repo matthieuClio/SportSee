@@ -15,6 +15,9 @@ import CustomizedRadialBarChart from '../components/rechart/radialBarChart/Custo
 import RenderLegend from '../components/rechart/barChart/custom/RenderLegend'
 import CustomToltip from '../components/rechart/barChart/custom/CustomizedToltip'
 
+// Component
+import InfosUser from '../components/InfoUser'
+
 // Style
 import './profile.scss'
 
@@ -39,7 +42,7 @@ const data: { name : string, uv: number, pv: number, amt: number }[] = [
 
 export default function Profile () {
     // Hook state
-    const [dataUser, setDataUser]: any = useState(0)
+    const [dataUser, setDataUser]: any = useState(false)
 
     // useState(
     //     [
@@ -62,15 +65,19 @@ export default function Profile () {
     //         },
     //     ]
     // )
+
     const { userId }: Params<string> = useParams()
+    // For InfosUser component
+    const classBackground = "profile-icon-one"
+    const path = '/images/icon/icon-fire.svg'
 
     // After the first render
     useEffect(() => {
 
-        // Define user data
+        // Define API/mock data
         async function fetchUserData () {
             
-            // Make call API
+            // Make API/mock call
             const apiData = await getData(userId) // getData from '../script/getData'
 
             // Will contain an array
@@ -84,36 +91,22 @@ export default function Profile () {
         fetchUserData()
     }, [userId])
 
-    return (
+    return dataUser && (
         <main className="profile">
-            <h1>Bonjour <span className="profile__first-name">{dataUser[0] && dataUser[0][0].data.userInfos.firstName}</span></h1>
+            <h1>Bonjour <span className="profile__first-name">{dataUser.apiDataUser[0].data.userInfos.firstName}</span></h1>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
 
             <div className="profile__container">
                 <div className="profile__container__chart">
-                    <CustomizedBarChart data={dataUser[1] && dataUser[1][0].data.sessions} legendContent={RenderLegend} tooltipContent={CustomToltip} />
-                    <CustomizedLineChart data={dataUser[2] && dataUser[2][0].data.sessions} />
-                    <CustomizedRadarChart data={dataUser[3] && dataUser[3][0].data} />
+                    <CustomizedBarChart data={dataUser.apiDataActivity[0].data.sessions} legendContent={RenderLegend} tooltipContent={CustomToltip} />
+                    <CustomizedLineChart data={dataUser.apiDataAverage[0].data.sessions} />
+                    <CustomizedRadarChart data={dataUser.apiDataPerformance[0].data} />
                     <CustomizedRadialBarChart data={data} />
                 </div>
 
                 {/* Performance */}
                 <ul>
-                    <li>
-                        Calories
-                    </li>
-
-                    <li>
-                        Proteine
-                    </li>
-
-                    <li>
-                        Glucides
-                    </li>
-
-                    <li>
-                        Lipides
-                    </li>
+                    <InfosUser backgroundClass={classBackground} urlIcon={path} text="Calorie" data={dataUser.apiDataUser[0].data.keyData} />
                 </ul>
             </div>
         </main>
