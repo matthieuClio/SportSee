@@ -1,7 +1,20 @@
 import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line } from "recharts"
 
 export default function CustomizedLineChart (props: { data: Array<object> }) {
-    const { data } = props
+    let { data }: Record<string,any> = props
+
+    // Can be a script file <---
+    function changeFormatData () {
+        const days: string[] = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+
+        data.map((element: { dayToDisplay: string }, index: number) => {
+            element.dayToDisplay = days[index]
+        })
+
+        return data
+    }
+    data = changeFormatData()
+    console.log(data)
 
     return (
         <LineChart 
@@ -14,13 +27,14 @@ export default function CustomizedLineChart (props: { data: Array<object> }) {
             left: 20,
             bottom: 5 
         }}
+        className="profile__container__chart__line-chart"
         >
             <Legend verticalAlign="top" align="left"/>
             <CartesianGrid strokeDasharray="0 3" fillOpacity={0.6} />
-            <XAxis dataKey="name" tickLine={false} axisLine={false}  />
-            <YAxis tickLine={false} hide={true} axisLine={false} />
+            <XAxis dataKey="dayToDisplay" tickLine={false} axisLine={false} stroke="#FF7676"/>
+            <YAxis hide={true} tickLine={false} axisLine={false} />
             <Tooltip />
-            <Line type="monotone" dataKey="sessionLength" stroke="#8884d8" />
+            <Line type="monotone" dataKey="sessionLength" dot={false} stroke="#FF7676" strokeWidth={2} />
         </LineChart>
     )
 }

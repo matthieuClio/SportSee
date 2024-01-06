@@ -66,7 +66,7 @@ export default function Profile () {
     //     ]
     // )
 
-    // From router
+    // From react router
     const { userId }: Params<string> = useParams()
 
     // After the first render
@@ -92,13 +92,13 @@ export default function Profile () {
     // For InfosUser component
     const unitOfMeasurement: string[] = ['kCal', 'g', 'g', 'g']
     const textValue: string[] = ['Calorie', 'Proteines', 'Glucides', 'Lipides']
-    const classBackground:string[] = [
+    const classBackground: string[] = [
         'profile-icon-one',
         'profile-icon-two',
         'profile-icon-three',
         'profile-icon-one'
     ]
-    const path:string[] = [
+    const path: string[] = [
         '/images/icon/fire-icon.svg',
         '/images/icon/chiken-icon.svg',
         '/images/icon/apple-icon.svg',

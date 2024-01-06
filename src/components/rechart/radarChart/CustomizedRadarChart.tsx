@@ -34,7 +34,7 @@ export default function CustomizedRadarChart (props: { data: {
         <RadarChart outerRadius={90} width={220} height={250} data={radarChartData}>
             <PolarGrid gridType='polygon' radialLines={false} polarRadius={[0, 10, 27, 49, 72, 95]}/>
             <PolarAngleAxis dataKey="A" />
-            <PolarRadiusAxis angle={30} domain={[0, 150]} />
+            <PolarRadiusAxis angle={30} domain={[0, 150]} tick={false} axisLine={false}/>
             <Radar name="Mike" dataKey="fullMark" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
             <Legend />
         </RadarChart>
