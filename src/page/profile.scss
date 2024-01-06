@@ -1,17 +1,28 @@
 // - VARIABLES -
 $profileFirstName: #FF0101;
-$profileInfocontainer: #FBFBFB;
+$profileInfocontainer:#FBFBFB;
 $profileInfoBackground:#FBEAEA;
+$profileInfoBackgroundTwo:#4AB8FF1A;
+$profileInfoBackgroundThree:#FBF6E5;
 
 // - FACTORED -
 .profile-icon-one {
     background-color: $profileInfoBackground;
 }
 
+.profile-icon-two {
+    background-color: $profileInfoBackgroundTwo;
+}
+
+.profile-icon-three {
+    background-color: $profileInfoBackgroundThree;
+}
+
 // Class profile
 .profile {
     border: 2px solid orange;
-    margin-left: 70px;
+    margin: auto;
+    margin-top: 0;
     height: 100%;
 
     &__first-name {
@@ -26,21 +37,38 @@ $profileInfoBackground:#FBEAEA;
             border: 2px solid blue;
             display: flex;
             flex-wrap: wrap;
-            width: 900px;
+            width: 660px;
         }
 
-        &__info {
-            border: 2px solid red;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            background-color: $profileInfocontainer;
+        &__performance {
             
-            &__icon-background {
-                padding: 15px;
-                border-radius: 5px;
+            &__info {
+                border: 2px solid red;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                background-color: $profileInfocontainer;
+                
+                &__icon-background {
+                    border: 2px solid blue;
+                    padding: 15px;
+                    border-radius: 5px;
+                }
+    
+                &__data {
+                    border: 2px solid orange;
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: 20px;
+    
+                    &__value {
+                        margin-bottom: 5px;
+                        font-size: 17px;
+                        font-weight: bold;
+                    }
+                }
             }
         }
     }

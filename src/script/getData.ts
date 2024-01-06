@@ -27,16 +27,12 @@ export default async function getData (idUser:string | undefined) {
         const apiDataPerformance = await responsePerformance.json()
 
         // An array will contain all API call
-        // const apiData = [[apiDataUser], [apiDataActivity], [apiDataAverage], [apiDataPerformance]]
         const apiData = {
             apiDataUser: [apiDataUser], 
             apiDataActivity: [apiDataActivity], 
             apiDataAverage: [apiDataAverage], 
             apiDataPerformance: [apiDataPerformance]
         }
-
-        // Définir un objet qui contiendra mes tableaux et définir des clés.
-        // ...
 
         return apiData
     }

@@ -11,7 +11,7 @@ export default function CustomizedBarChart (props: {
 
     return (
         <BarChart
-        width={900}
+        width={660}
         height={300}
         data={data}
         margin={{

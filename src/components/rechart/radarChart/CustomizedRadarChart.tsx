@@ -31,7 +31,7 @@ export default function CustomizedRadarChart (props: { data: {
     data && (radarChartData = specificFormat(data, radarChartData))
     
     return data && (
-        <RadarChart outerRadius={90} width={300} height={250} data={radarChartData}>
+        <RadarChart outerRadius={90} width={220} height={250} data={radarChartData}>
             <PolarGrid gridType='polygon' radialLines={false} polarRadius={[0, 10, 27, 49, 72, 95]}/>
             <PolarAngleAxis dataKey="A" />
             <PolarRadiusAxis angle={30} domain={[0, 150]} />

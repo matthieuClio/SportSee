@@ -5,7 +5,7 @@ export default function CustomizedLineChart (props: { data: Array<object> }) {
 
     return (
         <LineChart 
-        width={300}
+        width={220}
         height={250}
         data={data}
         margin={{ 

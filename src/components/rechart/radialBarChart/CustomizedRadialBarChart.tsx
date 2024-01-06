@@ -5,7 +5,7 @@ export default function CustomizedRadialBarChart (props: { data: Array<object> }
 
     return (
         <RadialBarChart 
-        width={300} 
+        width={220} 
         height={250} 
         innerRadius="10%" 
         outerRadius="80%" 

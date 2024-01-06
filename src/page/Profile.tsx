@@ -66,10 +66,8 @@ export default function Profile () {
     //     ]
     // )
 
+    // From router
     const { userId }: Params<string> = useParams()
-    // For InfosUser component
-    const classBackground = "profile-icon-one"
-    const path = '/images/icon/icon-fire.svg'
 
     // After the first render
     useEffect(() => {
@@ -80,16 +78,61 @@ export default function Profile () {
             // Make API/mock call
             const apiData = await getData(userId) // getData from '../script/getData'
 
-            // Will contain an array
-            // [0] -> apiDataUser
-            // [1] -> apiDataActivity
-            // [2] -> apiDataAverage
-            // [3] -> apiDataPerformance
+            // - apiData - will contain an object with these keys :
+            // apiDataUser
+            // apiDataActivity
+            // apiDataAverage
+            // apiDataPerformance
             setDataUser(apiData)
         }
 
         fetchUserData()
     }, [userId])
+    
+    // For InfosUser component
+    const unitOfMeasurement: string[] = ['kCal', 'g', 'g', 'g']
+    const textValue: string[] = ['Calorie', 'Proteines', 'Glucides', 'Lipides']
+    const classBackground:string[] = [
+        'profile-icon-one',
+        'profile-icon-two',
+        'profile-icon-three',
+        'profile-icon-one'
+    ]
+    const path:string[] = [
+        '/images/icon/fire-icon.svg',
+        '/images/icon/chiken-icon.svg',
+        '/images/icon/apple-icon.svg',
+        '/images/icon/cheeseburger-icon.svg'
+    ]
+    const allKeyData:string[] = dataUser && [
+        dataUser.apiDataUser[0].data.keyData.calorieCount, 
+        dataUser.apiDataUser[0].data.keyData.proteinCount, 
+        dataUser.apiDataUser[0].data.keyData.carbohydrateCount, 
+        dataUser.apiDataUser[0].data.keyData.lipidCount
+    ]
+
+    // Define length of keyData (from dataUser)
+    const sizeKeyData: number = dataUser && Object.keys(dataUser.apiDataUser[0].data.keyData).length
+
+    // Define all InfoUser component
+    function createInfoUser () {
+
+        const allInfoUserComp: React.JSX.Element[] = []
+
+        for (let i = 0; sizeKeyData-1 >= i; i++) {
+            allInfoUserComp.push(
+                <InfosUser 
+                    key={`unique-1-${i}`}
+                    backgroundClass={classBackground[i]}
+                    urlIcon={path[i]}
+                    text={textValue[i]}
+                    unit={unitOfMeasurement[i]}
+                    data={allKeyData[i]}
+                />
+            )
+        }
+        return allInfoUserComp
+    }
 
     return dataUser && (
         <main className="profile">
@@ -105,8 +148,9 @@ export default function Profile () {
                 </div>
 
                 {/* Performance */}
-                <ul>
-                    <InfosUser backgroundClass={classBackground} urlIcon={path} text="Calorie" data={dataUser.apiDataUser[0].data.keyData} />
+                <ul className="profile__container__performance" style={{border: '2px solid purple', display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
+                    {/* Display all InfoUser component */}
+                    {createInfoUser()}
                 </ul>
             </div>
         </main>
