@@ -1,7 +1,8 @@
 import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line } from "recharts"
 
 export default function CustomizedLineChart (props: { data: Array<object> }) {
-    let { data }: Record<string,any> = props
+    let { data }: Record<string, any> = props
+    // let { data } = props
 
     // Can be a script file <---
     function changeFormatData () {
@@ -14,7 +15,6 @@ export default function CustomizedLineChart (props: { data: Array<object> }) {
         return data
     }
     data = changeFormatData()
-    console.log(data)
 
     return (
         <LineChart 

@@ -5,6 +5,7 @@ $profileInfoBackground:#FBEAEA;
 $profileInfoBackgroundTwo:#4AB8FF1A;
 $profileInfoBackgroundThree:#FBF6E5;
 $profileLineChartBackground:#FF0000;
+$profileRadarChartBackground:#282D30;
 
 // - FACTORED -
 .profile-icon-one {
@@ -42,6 +43,11 @@ $profileLineChartBackground:#FF0000;
 
             &__line-chart{
                 background-color: $profileLineChartBackground;
+                border-radius: 5px;
+            }
+
+            &__radarChart {
+                background-color: #282D30;
                 border-radius: 5px;
             }
         }

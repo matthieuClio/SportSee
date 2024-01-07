@@ -16,7 +16,9 @@ export default function specificFormat (data: {
         {"value":number,"kind":number},
         {"value":number,"kind":number}
     ]
-}, radarChartData: Array<object>) {
+}) {
+
+    const dataSpecificFormat: Array<object> = []
 
     // Defined specific object format
     for (let i = 0; data.data.length > i; i++) {
@@ -28,8 +30,8 @@ export default function specificFormat (data: {
             A: data.kind[i+1 as keyof typeof data.kind],
             fullMark: data.data[i].value
         }
-        radarChartData.push(newObject)
+        dataSpecificFormat.push(newObject)
     }
 
-    return radarChartData
+    return dataSpecificFormat
 }
