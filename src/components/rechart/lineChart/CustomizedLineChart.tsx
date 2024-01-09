@@ -1,4 +1,8 @@
+// Recharts
 import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line } from "recharts"
+
+// Style
+import './customizedLineChart.scss'
 
 export default function CustomizedLineChart (props: { data: Array<object> }) {
     let { data }: Record<string, any> = props
@@ -18,7 +22,7 @@ export default function CustomizedLineChart (props: { data: Array<object> }) {
 
     return (
         <LineChart 
-        width={220}
+        width={280}
         height={250}
         data={data}
         margin={{ 
@@ -27,7 +31,7 @@ export default function CustomizedLineChart (props: { data: Array<object> }) {
             left: 20,
             bottom: 5 
         }}
-        className="profile__container__chart__line-chart"
+        className="line-chart"
         >
             <Legend verticalAlign="top" align="left"/>
             <CartesianGrid strokeDasharray="0 3" fillOpacity={0.6} />

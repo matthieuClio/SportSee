@@ -1,4 +1,8 @@
+// Recharts
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
+
+// Style
+import './customizedBarChart.scss'
 
 export default function CustomizedBarChart (props: { 
                                                     data: Array<object>, 
@@ -11,7 +15,7 @@ export default function CustomizedBarChart (props: {
 
     return (
         <BarChart
-        width={660}
+        width={860}
         height={300}
         data={data}
         margin={{
@@ -22,6 +26,7 @@ export default function CustomizedBarChart (props: {
         }}
         barSize={20}
         barGap={15}
+        className="bar-chart"
         >
             <Legend verticalAlign="top" align="right" content={legendContent} />
             <CartesianGrid strokeDasharray="3 3" fillOpacity={0.6} vertical={false} />

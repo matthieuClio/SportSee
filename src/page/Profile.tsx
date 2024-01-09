@@ -8,7 +8,7 @@ import { Params, useParams } from 'react-router-dom'
 import CustomizedBarChart from '../components/rechart/barChart/CustomizedBarChart'
 import CustomizedLineChart from '../components/rechart/lineChart/CustomizedLineChart'
 import CustomizedRadarChart from '../components/rechart/radarChart/CustomizedRadarChart'
-import CustomizedRadialBarChart from '../components/rechart/radialBarChart/CustomizedRadialBarChart'
+import CustomizedPieChartAngle from '../components/rechart/radialPieChartAngle/CustomizedPieChartAngle'
 
 // Customize chart component
 // - For customBarChart -
@@ -25,20 +25,12 @@ import './profile.scss'
 import getData from '../script/getData'
 
 // Mocked data
-const data: { name : string, uv: number, pv: number, amt: number }[] = [
-    {
-      name: "Page A",
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
-    },
-    {
-      name: "Page B",
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-]
+const data = [
+    { name: 'Group A', value: 400 },
+    { name: 'Group B', value: 300 },
+    { name: 'Group C', value: 300 },
+    { name: 'Group D', value: 200 },
+  ];
 
 export default function Profile () {
     // Hook state
@@ -119,6 +111,7 @@ export default function Profile () {
 
         const allInfoUserComp: React.JSX.Element[] = []
 
+        // Remplacer par 4 composant <-
         for (let i = 0; sizeKeyData-1 >= i; i++) {
             allInfoUserComp.push(
                 <InfosUser 
@@ -144,11 +137,11 @@ export default function Profile () {
                     <CustomizedBarChart data={dataUser.apiDataActivity[0].data.sessions} legendContent={RenderLegend} tooltipContent={CustomToltip} />
                     <CustomizedLineChart data={dataUser.apiDataAverage[0].data.sessions} />
                     <CustomizedRadarChart data={dataUser.apiDataPerformance[0].data} />
-                    <CustomizedRadialBarChart data={data} />
+                    <CustomizedPieChartAngle data={data}/>
                 </div>
 
                 {/* Performance */}
-                <ul className="profile__container__performance" style={{border: '2px solid purple', display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
+                <ul className="profile__container__performance">
                     {/* Display all InfoUser component */}
                     {createInfoUser()}
                 </ul>

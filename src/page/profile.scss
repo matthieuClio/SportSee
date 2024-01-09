@@ -1,11 +1,8 @@
 // - VARIABLES -
 $profileFirstName: #FF0101;
-$profileInfocontainer:#FBFBFB;
 $profileInfoBackground:#FBEAEA;
 $profileInfoBackgroundTwo:#4AB8FF1A;
 $profileInfoBackgroundThree:#FBF6E5;
-$profileLineChartBackground:#FF0000;
-$profileRadarChartBackground:#282D30;
 
 // - FACTORED -
 .profile-icon-one {
@@ -20,7 +17,7 @@ $profileRadarChartBackground:#282D30;
     background-color: $profileInfoBackgroundThree;
 }
 
-// Class profile
+// Page profile
 .profile {
     border: 2px solid orange;
     margin: auto;
@@ -39,49 +36,14 @@ $profileRadarChartBackground:#282D30;
             border: 2px solid blue;
             display: flex;
             flex-wrap: wrap;
-            width: 660px;
-
-            &__line-chart{
-                background-color: $profileLineChartBackground;
-                border-radius: 5px;
-            }
-
-            &__radarChart {
-                background-color: #282D30;
-                border-radius: 5px;
-            }
+            width: 870px;
         }
 
         &__performance {
-            
-            &__info {
-                border: 2px solid red;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                align-items: center;
-                padding: 20px;
-                background-color: $profileInfocontainer;
-                
-                &__icon-background {
-                    border: 2px solid blue;
-                    padding: 15px;
-                    border-radius: 5px;
-                }
-    
-                &__data {
-                    border: 2px solid orange;
-                    display: flex;
-                    flex-direction: column;
-                    margin-left: 20px;
-    
-                    &__value {
-                        margin-bottom: 5px;
-                        font-size: 17px;
-                        font-weight: bold;
-                    }
-                }
-            }
+            border: 2px solid green;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
     }
 }

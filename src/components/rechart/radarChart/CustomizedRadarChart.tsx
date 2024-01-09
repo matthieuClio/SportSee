@@ -1,7 +1,10 @@
-// Rechart
-import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend } from "recharts"
+// Recharts
+import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from "recharts"
 
-// script
+// Style
+import './customizedRadarChart.scss'
+
+// Script
 import specificFormat from "../../../script/specificFormat"
 
 export default function CustomizedRadarChart (props: { data: {
@@ -33,17 +36,16 @@ export default function CustomizedRadarChart (props: { data: {
     return data && (
         <RadarChart
         outerRadius={90}
-        width={220}
+        width={280}
         height={250}
         data={radarChartData}
-        className="profile__container__chart__radarChart"
+        className="radar-chart"
         >
 
             <PolarGrid gridType='polygon' radialLines={false} polarRadius={[0, 10, 20, 40, 60, 80]}/>
             <PolarAngleAxis dataKey="A" stroke="#FFFFFF" tickLine={false} axisLine={false} />
             <PolarRadiusAxis angle={30} domain={[0, 150]} tick={false} axisLine={false} />
             <Radar name="Mike" dataKey="fullMark" fill="#FF0000" fillOpacity={0.6} />
-            {/* <Legend /> */}
         </RadarChart>
     )
 }
