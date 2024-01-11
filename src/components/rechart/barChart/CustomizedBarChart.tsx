@@ -9,7 +9,7 @@ export default function CustomizedBarChart (props: {
                                                     legendContent: (props: object) => React.JSX.Element, 
                                                     tooltipContent: (props: object) => React.JSX.Element 
                                                 }
-                                        ) {
+                                            ) {
 
     const { data, legendContent, tooltipContent } = props
 

@@ -10,10 +10,12 @@ import CustomizedLineChart from '../components/rechart/lineChart/CustomizedLineC
 import CustomizedRadarChart from '../components/rechart/radarChart/CustomizedRadarChart'
 import CustomizedPieChartAngle from '../components/rechart/radialPieChartAngle/CustomizedPieChartAngle'
 
-// Customized chart component
+// Customized component
 // - For CustomizedBarChart -
 import RenderLegend from '../components/rechart/barChart/customized/RenderLegend'
 import CustomToltip from '../components/rechart/barChart/customized/CustomizedToltip'
+// - For CustomizedLineChart -
+import RenderLegendLineChart from '../components/rechart/lineChart/customized/RenderLegendLineChart'
 // - For CustomizedPieChartAngle -
 import RenderLegendPieChart from '../components/rechart/radialPieChartAngle/customized/RenderLegendPieChart'
 
@@ -130,7 +132,7 @@ export default function Profile () {
             <div className="profile__container">
                 <div className="profile__container__chart">
                     <CustomizedBarChart data={dataUser.apiDataActivity[0].data.sessions} legendContent={RenderLegend} tooltipContent={CustomToltip} />
-                    <CustomizedLineChart data={dataUser.apiDataAverage[0].data.sessions} />
+                    <CustomizedLineChart data={dataUser.apiDataAverage[0].data.sessions} legendContent={RenderLegendLineChart} />
                     <CustomizedRadarChart data={dataUser.apiDataPerformance[0].data} />
                     <CustomizedPieChartAngle 
                         data={dataUser.apiDataUser[0].data.todayScore ? dataUser.apiDataUser[0].data.todayScore : dataUser.apiDataUser[0].data.score} 

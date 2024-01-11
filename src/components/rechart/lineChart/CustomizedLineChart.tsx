@@ -7,10 +7,16 @@ import './customizedLineChart.scss'
 // Script
 import changeFormatDataLineChart from '../../../scripts/changeFormatDataLineChart'
 
-export default function CustomizedLineChart (props: { data: Array<object> }) {
+export default function CustomizedLineChart (props: { 
+                                                        data: Array<object>, 
+                                                        legendContent: (props: object) => React.JSX.Element 
+                                                    }
+                                            ) {
+    const { legendContent } = props
     let { data }: Record<string, any> = props
 
     // Change data format
+    // const specificData: Record<string, any> = changeFormatDataLineChart(data)
     data = changeFormatDataLineChart(data)
 
     return (
@@ -26,7 +32,7 @@ export default function CustomizedLineChart (props: { data: Array<object> }) {
         }}
         className="line-chart"
         >
-            <Legend verticalAlign="top" align="left"/>
+            <Legend verticalAlign="top" align="left" content={legendContent}/>
             <CartesianGrid strokeDasharray="0 3" fillOpacity={0.6} />
             <XAxis dataKey="dayToDisplay" tickLine={false} axisLine={false} stroke="#FF7676"/>
             <YAxis hide={true} tickLine={false} axisLine={false} />
