@@ -11,9 +11,10 @@ export default function CustomizedToltipBarChart (props: {
                                                 ) {
     const { payload } = props
 
-    return payload && (
+    return (
         <div className="toltip-bar-chart">
-            {payload[0] && payload[0].payload.sessionLength} min
+            {/* payload and payload[0] must be define */}
+            {payload && payload[0] && payload[0].payload.sessionLength} min
         </div>
     )
 }
