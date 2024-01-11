@@ -9,10 +9,11 @@ import changeFormatDataLineChart from '../../../scripts/changeFormatDataLineChar
 
 export default function CustomizedLineChart (props: { 
                                                         data: Array<object>, 
-                                                        legendContent: (props: object) => React.JSX.Element 
+                                                        legendContent: (props: object) => React.JSX.Element,
+                                                        tooltipContent: (props: object) => React.JSX.Element 
                                                     }
                                             ) {
-    const { legendContent } = props
+    const { legendContent, tooltipContent } = props
     let { data }: Record<string, any> = props
 
     // Change data format
@@ -36,7 +37,7 @@ export default function CustomizedLineChart (props: {
             <CartesianGrid strokeDasharray="0 3" fillOpacity={0.6} />
             <XAxis dataKey="dayToDisplay" tickLine={false} axisLine={false} stroke="#FF7676"/>
             <YAxis hide={true} tickLine={false} axisLine={false} />
-            <Tooltip />
+            <Tooltip content={tooltipContent}/>
             <Line type="monotone" dataKey="sessionLength" dot={false} stroke="#FF7676" strokeWidth={2} />
         </LineChart>
     )

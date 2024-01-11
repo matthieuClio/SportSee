@@ -1,9 +1,9 @@
 import { Fragment } from "react"
 
 // Style
-import './renderLegend.scss'
+import './renderLegendBarChart.scss'
 
-export default function RenderLegend (props: { payload?: [], }) {
+export default function RenderLegendBarChart (props: { payload?: [], }) {
     const { payload } = props
     const labelText: string[] = ['Poids (kg)', 'Calories brûlées (kCal)']
 
