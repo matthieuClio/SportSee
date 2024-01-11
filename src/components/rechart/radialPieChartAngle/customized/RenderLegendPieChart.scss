@@ -1,0 +1,10 @@
+// - VARIABLES -
+$renderLegendPieChartcolor:#20253A;
+
+.render-legend-pie-chart {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-weight: bold;
+    color: $renderLegendPieChartcolor;
+}

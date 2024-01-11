@@ -10,10 +10,12 @@ import CustomizedLineChart from '../components/rechart/lineChart/CustomizedLineC
 import CustomizedRadarChart from '../components/rechart/radarChart/CustomizedRadarChart'
 import CustomizedPieChartAngle from '../components/rechart/radialPieChartAngle/CustomizedPieChartAngle'
 
-// Customize chart component
-// - For customBarChart -
-import RenderLegend from '../components/rechart/barChart/custom/RenderLegend'
-import CustomToltip from '../components/rechart/barChart/custom/CustomizedToltip'
+// Customized chart component
+// - For CustomizedBarChart -
+import RenderLegend from '../components/rechart/barChart/customized/RenderLegend'
+import CustomToltip from '../components/rechart/barChart/customized/CustomizedToltip'
+// - For CustomizedPieChartAngle -
+import RenderLegendPieChart from '../components/rechart/radialPieChartAngle/customized/RenderLegendPieChart'
 
 // Component
 import InfosUser from '../components/InfoUser'
@@ -26,11 +28,9 @@ import getData from '../script/getData'
 
 // Mocked data
 const data = [
-    { name: 'Group A', value: 400 },
-    { name: 'Group B', value: 300 },
-    { name: 'Group C', value: 300 },
-    { name: 'Group D', value: 200 },
-  ];
+    { name: 'Group A', value: 50 },
+    { name: 'Group B', value: 50 }
+];
 
 export default function Profile () {
     // Hook state
@@ -76,6 +76,7 @@ export default function Profile () {
             // apiDataAverage
             // apiDataPerformance
             setDataUser(apiData)
+            // console.log(apiData)
         }
 
         fetchUserData()
@@ -137,7 +138,10 @@ export default function Profile () {
                     <CustomizedBarChart data={dataUser.apiDataActivity[0].data.sessions} legendContent={RenderLegend} tooltipContent={CustomToltip} />
                     <CustomizedLineChart data={dataUser.apiDataAverage[0].data.sessions} />
                     <CustomizedRadarChart data={dataUser.apiDataPerformance[0].data} />
-                    <CustomizedPieChartAngle data={data}/>
+                    <CustomizedPieChartAngle 
+                        data={dataUser.apiDataUser[0].data.todayScore ? dataUser.apiDataUser[0].data.todayScore : dataUser.apiDataUser[0].data.score} 
+                        legendContent={RenderLegendPieChart} 
+                    />
                 </div>
 
                 {/* Performance */}

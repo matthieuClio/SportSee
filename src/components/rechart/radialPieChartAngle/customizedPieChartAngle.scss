@@ -1,8 +1,53 @@
 // - VARIABLES -
-$barChartBackground:#FBFBFB;
+$pieChartAngleBackground:#FBFBFB;
+$pieChartAngleTextBackground: #FFFFFF;
+$pieChartAngleValueColor: #282D30;
+$pieChartAngleTextColor: #74798C;
 
-// style={{marginRight: '10px', height: 'auto', backgroundColor: 'purple', display: 'flex', alignItems: 'center'}}
+.pie-chart-container {
+    position: relative;
+    border: 2px solid blue;
 
-.pie-chart-angle {
-    background-color: purple;
+    &__pie-chart-angle {
+        background-color: $pieChartAngleBackground;
+        border-radius: 5px;
+    }
+
+    &__info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border: 2px solid orange;
+
+        &__background {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 160px;
+            height: 160px;
+            border-radius: 100px;
+            background-color: $pieChartAngleTextBackground;
+            font-weight: bold;
+
+            &__value {
+                margin: 20px 0 10px 0;
+                font-size: 26px;
+                color: $pieChartAngleValueColor;
+            }
+
+            &__text {
+                width: 70px;
+                font-size: 16px;
+                text-align: center;
+                color: $pieChartAngleTextColor;
+                line-height: 23px;
+            }
+        }
+    }
 }
