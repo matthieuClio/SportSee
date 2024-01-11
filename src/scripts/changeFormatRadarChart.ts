@@ -1,4 +1,4 @@
-export default function specificFormat (data: {
+export default function changeFormatRadarChart (data: {
     "userId": 12,
     "kind": {
         1:number,

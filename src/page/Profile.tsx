@@ -24,13 +24,7 @@ import InfosUser from '../components/InfoUser'
 import './profile.scss'
 
 // Script
-import getData from '../script/getData'
-
-// Mocked data
-const data = [
-    { name: 'Group A', value: 50 },
-    { name: 'Group B', value: 50 }
-];
+import getData from '../scripts/getData'
 
 export default function Profile () {
     // Hook state

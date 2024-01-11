@@ -4,21 +4,14 @@ import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line } from "r
 // Style
 import './customizedLineChart.scss'
 
+// Script
+import changeFormatDataLineChart from '../../../scripts/changeFormatDataLineChart'
+
 export default function CustomizedLineChart (props: { data: Array<object> }) {
     let { data }: Record<string, any> = props
-    // let { data } = props
 
-    // Can be a script file <---
-    function changeFormatData () {
-        const days: string[] = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
-
-        data.map((element: { dayToDisplay: string }, index: number) => {
-            element.dayToDisplay = days[index]
-        })
-
-        return data
-    }
-    data = changeFormatData()
+    // Change data format
+    data = changeFormatDataLineChart(data)
 
     return (
         <LineChart 

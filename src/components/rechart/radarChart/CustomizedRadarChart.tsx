@@ -5,10 +5,10 @@ import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from "r
 import './customizedRadarChart.scss'
 
 // Script
-import specificFormat from "../../../script/specificFormat"
+import changeFormatRadarChart from "../../../scripts/changeFormatRadarChart"
 
 export default function CustomizedRadarChart (props: { data: {
-    "userId": 12,
+    "userId": number,
     "kind": {
         1:number,
         2:number,
@@ -31,7 +31,7 @@ export default function CustomizedRadarChart (props: { data: {
     // type OnlyKeys = keyof typeof data.kind
 
     // Defined specific object format
-    const radarChartData: Array<object> = data && specificFormat(data)
+    const radarChartData: Array<object> = data && changeFormatRadarChart(data)
     
     return data && (
         <RadarChart
