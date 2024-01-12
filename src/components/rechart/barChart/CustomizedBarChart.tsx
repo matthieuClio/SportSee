@@ -4,14 +4,20 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'rec
 // Style
 import './customizedBarChart.scss'
 
-export default function CustomizedBarChart (props: { 
-                                                    data: Array<object>, 
-                                                    legendContent: (props: object) => React.JSX.Element, 
-                                                    tooltipContent: (props: object) => React.JSX.Element 
-                                                }
-                                            ) {
+// Script
+import changeFormatBarChart from '../../../scripts/changeFormatBarChart'
 
-    const { data, legendContent, tooltipContent } = props
+export default function CustomizedBarChart (props: { 
+                                                data: { day: number | string }[], 
+                                                legendContent: (props: object) => React.JSX.Element, 
+                                                tooltipContent: (props: object) => React.JSX.Element 
+                                            }) {
+
+    let { data } = props                             
+    const { legendContent, tooltipContent } = props
+
+    // Change data format
+    data = changeFormatBarChart(data)
 
     return (
         <BarChart
@@ -24,7 +30,7 @@ export default function CustomizedBarChart (props: {
             left: 20,
             bottom: 5
         }}
-        barSize={20}
+        barSize={10}
         barGap={15}
         className="bar-chart"
         >
@@ -34,11 +40,19 @@ export default function CustomizedBarChart (props: {
             <YAxis orientation="right" hide={false} includeHidden type="number" tickLine={false} axisLine={false} />
             <Tooltip
                 content={tooltipContent}
-                contentStyle={{ backgroundColor: '#E60000', color: 'white' }} 
-                itemStyle={{ color: 'white' }}
             />
-            <Bar dataKey="kilogram" fill="#282D30" label={{ position: "top" }} radius={[10, 10, 0, 0]} />
-            <Bar dataKey="calories" fill="#E60000" radius={[10, 10, 0, 0]} />
+            <Bar 
+                dataKey="kilogram" 
+                fill="#282D30" 
+                // label={{ position: "top" }} 
+                radius={[10, 10, 0, 0]} 
+            />
+            <Bar 
+                dataKey="calories" 
+                fill="#E60000" 
+                // label={{ position: "top" }} 
+                radius={[10, 10, 0, 0]} 
+            />
         </BarChart>
     )
 }
