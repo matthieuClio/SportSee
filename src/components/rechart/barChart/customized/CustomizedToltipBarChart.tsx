@@ -1,21 +1,24 @@
 // Style
 import './customizedToltipBarChart.scss'
 
-export default function CustomizedToltipBarChart (props:{ active?:boolean, payload?:[], label?:string }) {
-    const { payload, label } = props
+export default function CustomizedToltipBarChart (props: { 
+    payload?: {
+        payload: { kilogram: number, calories: number }
+    }[],
+}) {
 
-    // payload[0] && console.log(payload[0].payload.kilogram)
-    // payload[1] && console.log(payload[1].payload.calories)
+    const { payload } = props
 
     return (
         <div className="toltip">
-            {/* {label} */}
             <div className="toltip__kilogram">
+                {/* payload and payload[0] must be defined for display them */}
                 {payload && payload[0] && payload[0].payload.kilogram}kg
             </div>
 
             <div>
-                {payload && payload[1] && payload[1].payload.calories}Kcal
+                {/* payload and payload[0] must be defined for display them */}
+                {payload && payload[0] && payload[0].payload.calories}Kcal
             </div>
         </div>
     )
