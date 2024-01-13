@@ -6,7 +6,6 @@ $pieChartAngleTextColor: #74798C;
 
 .pie-chart-container {
     position: relative;
-    border: 2px solid blue;
 
     &__pie-chart-angle {
         background-color: $pieChartAngleBackground;
@@ -22,7 +21,6 @@ $pieChartAngleTextColor: #74798C;
         bottom: 0;
         left: 0;
         right: 0;
-        border: 2px solid orange;
 
         &__background {
             display: flex;
