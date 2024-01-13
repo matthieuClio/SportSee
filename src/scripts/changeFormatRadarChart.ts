@@ -1,24 +1,27 @@
 export default function changeFormatRadarChart (data: {
-    "userId": 12,
+    "userId": number,
     "kind": {
-        1:string,
-        2:string,
-        3:string,
-        4:string,
-        5:string,
-        6:string
+        1: string,
+        2: string,
+        3: string,
+        4: string,
+        5: string,
+        6: string
     },
     "data": [
-        {"value": number,"kind":number},
-        {"value": number,"kind":number},
-        {"value": number,"kind":number},
-        {"value": number,"kind":number},
-        {"value": number,"kind":number},
-        {"value": number,"kind":number}
+        {"value": number, "kind":number},
+        {"value": number, "kind":number},
+        {"value": number, "kind":number},
+        {"value": number, "kind":number},
+        {"value": number, "kind":number},
+        {"value": number, "kind":number}
     ]
 }) {
 
-    const dataSpecificFormat: Array<object> = []
+    // Will be the new data format
+    const dataSpecificFormat: { subject: number, A: string, fullMark: number }[] = []
+
+    // It's the new order and value than A: string of dataSpecificFormat must be
     const statistics = ['Intensité', 'Vitesse', 'Force', 'Endurance', 'Energie', 'Cardio']
 
     // Defined specific object format
@@ -26,7 +29,7 @@ export default function changeFormatRadarChart (data: {
 
         let statisticsTranslation = ''
 
-        // Will contain the translation
+        // Will contain the translation (statisticsTranslation)
         switch (data.kind[i+1 as keyof typeof data.kind]) {
 
             case 'intensity': statisticsTranslation = statistics[0];
@@ -50,12 +53,12 @@ export default function changeFormatRadarChart (data: {
 
         // Create new object
         const newObject = {
-
             subject: data.data[i].kind,
             A: statisticsTranslation,
-            // A: data.kind.splice(i+1, 1),
             fullMark: data.data[i].value
         }
+
+        // Insert in the array
         dataSpecificFormat.push(newObject)
     }
 
