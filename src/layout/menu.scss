@@ -8,10 +8,10 @@ $menuIcon: #FFFFFFFF;
     display: flex;
     min-height: 800px;
 
-    // Class menu
+    // Menu class 
     &__menu {
         border: 2px solid red;
-        width: 100px;
+        min-width: 100px;
         background-color: $menuBackground;
         color: $menuText;
         overflow: hidden;
