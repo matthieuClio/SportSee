@@ -4,8 +4,10 @@ import { PieChart, Pie, Cell, Legend } from 'recharts'
 // Style
 import './customizedPieChartAngle.scss'
 
-export default function CustomizedPieChartAngle (props) {
+export default function CustomizedPieChartAngle (props: { data: number, legendContent: () => React.JSX.Element }) {
     const { data, legendContent } = props
+
+    console.log(props)
 
     // Define Cell color
     const colors = ["#FF0000", "#FBFBFB"]
@@ -43,7 +45,7 @@ export default function CustomizedPieChartAngle (props) {
                         <Cell fill={colors[0]} stroke={colors[0]} />
                         <Cell fill={colors[1]} stroke={colors[1]} />
                     </Pie>
-                    <Legend verticalAlign="top" content={legendContent}/>
+                    <Legend verticalAlign="top" content={legendContent} />
                 </PieChart>
 
                 {/* Information text */}
@@ -62,26 +64,3 @@ export default function CustomizedPieChartAngle (props) {
         </>
     )
 }
-
-// import { RadialBarChart, RadialBar, Legend, Tooltip } from 'recharts'
-
-// export default function CustomizedRadialBarChart (props: { data: Array<object> }) {
-//     const { data } = props
-
-//     return (
-//         <RadialBarChart
-//         width={220} 
-//         height={250} 
-//         innerRadius="0%"
-//         outerRadius="130%"
-//         data={data}
-//         startAngle={250}
-//         endAngle={0}
-//         className="profile__container__chart__radial-bar-chart"
-//         >
-//             <RadialBar label={{ fill: "#FFFFFF", position: "insideStart" }} background dataKey="uv" />
-//             {/* <Legend iconSize={10} width={120} height={140} layout="vertical" verticalAlign="middle" align="right" /> */}
-//             {/* <Tooltip /> */}
-//         </RadialBarChart>
-//     )
-// }
