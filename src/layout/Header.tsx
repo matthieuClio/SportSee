@@ -14,18 +14,18 @@ export default function Header () {
                 </span>
             </div>
 
-            <nav>
-                <ul className="header__link">
-                    <li className="header__link__text">
+            <nav className="header__nav">
+                <ul className="header__nav__link">
+                    <li>
                         Accueil
                     </li>
-                    <li className="header__link__text">
+                    <li>
                         Profil
                     </li>
-                    <li className="header__link__text">
+                    <li>
                         Réglage
                     </li>
-                    <li className="header__link__text">
+                    <li>
                         Communauté
                     </li>
                 </ul>

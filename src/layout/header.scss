@@ -18,6 +18,8 @@ $headerLink: #FFFFFFFF;
     &__logo {
         display: flex;
         align-items: center;
+        border: 2px solid red;
+        margin-right: 120px;
 
         &__figure {
             
@@ -35,14 +37,14 @@ $headerLink: #FFFFFFFF;
         }
     }
 
-    &__link {
-        border: 2px solid blue;
-        display: flex;
-        justify-content: space-between;
-        color: $headerLink;
+    &__nav {
+        width: 100%;
         
-        &__text {
-            margin: 0 70px 0 70px;
+        &__link {
+            border: 2px solid blue;
+            display: flex;
+            justify-content: space-between;
+            color: $headerLink;
         }
     }
 }
