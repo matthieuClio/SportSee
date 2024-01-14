@@ -47,3 +47,23 @@ $profileInfoBackgroundThree:#FBF6E5;
         }
     }
 }
+
+// Desktop format 1200px max
+@media screen and (max-width: 1200px) {
+
+    // Profile Page
+    .profile {
+
+        &__container {
+            display: block;
+
+            &__chart {
+                margin-bottom: 15px;
+            }
+
+            &__performance {
+                flex-direction: row;
+            }
+        }
+    }
+}

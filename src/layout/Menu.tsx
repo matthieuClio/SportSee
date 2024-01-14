@@ -13,15 +13,15 @@ export default function Menu () {
                     </li>
 
                     <li className="main-container__menu__container__icon">
-                        <img src="/images/icon/swimming-icon.svg" alt="yoga" className="main-container__menu__container__icon__image" />
+                        <img src="/images/icon/swimming-icon.svg" alt="swimming" className="main-container__menu__container__icon__image" />
                     </li>
 
                     <li className="main-container__menu__container__icon">
-                        <img src="/images/icon/bike-icon.svg" alt="yoga" className="main-container__menu__container__icon__image" />
+                        <img src="/images/icon/bike-icon.svg" alt="bike" className="main-container__menu__container__icon__image" />
                     </li>
 
                     <li className="main-container__menu__container__icon">
-                        <img src="/images/icon/weights-icon.svg" alt="yoga" className="main-container__menu__container__icon__image" />
+                        <img src="/images/icon/weights-icon.svg" alt="weights" className="main-container__menu__container__icon__image" />
                     </li>
 
                     <li className="main-container__menu__container__text">
