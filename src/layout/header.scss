@@ -39,7 +39,10 @@ $headerLink: #FFFFFFFF;
         border: 2px solid blue;
         display: flex;
         justify-content: space-between;
-        min-width: 1000px;
         color: $headerLink;
+        
+        &__text {
+            margin: 0 70px 0 70px;
+        }
     }
 }

@@ -64,7 +64,7 @@ export default function Profile () {
         // Define API/mock data
         async function fetchUserData () {
             
-            // Make API/mock call
+            // Contain data API/mock call
             const apiData = await getData(userId) // getData from '../script/getData'
 
             // - apiData - will contain an object with these keys :
@@ -72,58 +72,13 @@ export default function Profile () {
             // apiDataActivity
             // apiDataAverage
             // apiDataPerformance
+
+            // Stock the data (in useSate variable)
             setDataUser(apiData)
-            // console.log(apiData)
         }
 
         fetchUserData()
     }, [userId])
-    
-    // For InfosUser component
-    const unitOfMeasurement: string[] = ['kCal', 'g', 'g', 'g']
-    const textValue: string[] = ['Calorie', 'Proteines', 'Glucides', 'Lipides']
-    const classBackground: string[] = [
-        'profile-icon-one',
-        'profile-icon-two',
-        'profile-icon-three',
-        'profile-icon-one'
-    ]
-    const path: string[] = [
-        '/images/icon/fire-icon.svg',
-        '/images/icon/chiken-icon.svg',
-        '/images/icon/apple-icon.svg',
-        '/images/icon/cheeseburger-icon.svg'
-    ]
-    const allKeyData:string[] = dataUser && [
-        dataUser.apiDataUser[0].data.keyData.calorieCount, 
-        dataUser.apiDataUser[0].data.keyData.proteinCount, 
-        dataUser.apiDataUser[0].data.keyData.carbohydrateCount, 
-        dataUser.apiDataUser[0].data.keyData.lipidCount
-    ]
-
-    // Define length of keyData (from dataUser)
-    const sizeKeyData: number = dataUser && Object.keys(dataUser.apiDataUser[0].data.keyData).length
-
-    // Define all InfoUser component
-    function createInfoUser () {
-
-        const allInfoUserComp: React.JSX.Element[] = []
-
-        // Remplacer par 4 composant <-
-        for (let i = 0; sizeKeyData-1 >= i; i++) {
-            allInfoUserComp.push(
-                <InfosUser 
-                    key={`unique-1-${i}`}
-                    backgroundClass={classBackground[i]}
-                    urlIcon={path[i]}
-                    text={textValue[i]}
-                    unit={unitOfMeasurement[i]}
-                    data={allKeyData[i]}
-                />
-            )
-        }
-        return allInfoUserComp
-    }
 
     return dataUser && (
         <main className="profile">
@@ -143,8 +98,38 @@ export default function Profile () {
 
                 {/* Performance */}
                 <ul className="profile__container__performance">
-                    {/* Display all InfoUser component */}
-                    {createInfoUser()}
+                    {/* Display InfoUser components */}
+                    <InfosUser 
+                        backgroundClass={'profile-icon-one'}
+                        urlIcon={'/images/icon/fire-icon.svg'}
+                        text={'Calorie'}
+                        unit={'kCal'}
+                        data={dataUser.apiDataUser[0].data.keyData.calorieCount}
+                    />
+
+                    <InfosUser 
+                        backgroundClass={'profile-icon-two'}
+                        urlIcon={'/images/icon/chiken-icon.svg'}
+                        text={'Proteines'}
+                        unit={'g'}
+                        data={dataUser.apiDataUser[0].data.keyData.proteinCount}
+                    />
+
+                    <InfosUser 
+                        backgroundClass={'profile-icon-three'}
+                        urlIcon={'/images/icon/apple-icon.svg'}
+                        text={'Glucides'}
+                        unit={'g'}
+                        data={dataUser.apiDataUser[0].data.keyData.carbohydrateCount}
+                    />
+
+                    <InfosUser 
+                        backgroundClass={'profile-icon-one'}
+                        urlIcon={'/images/icon/cheeseburger-icon.svg'}
+                        text={'Lipides'}
+                        unit={'g'}
+                        data={dataUser.apiDataUser[0].data.keyData.lipidCount}
+                    />
                 </ul>
             </div>
         </main>

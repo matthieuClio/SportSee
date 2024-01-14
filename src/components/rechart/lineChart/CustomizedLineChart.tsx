@@ -17,7 +17,6 @@ export default function CustomizedLineChart (props: {
     let { data }: Record<string, any> = props
 
     // Change data format
-    // const specificData: Record<string, any> = changeFormatDataLineChart(data)
     data = changeFormatDataLineChart(data)
 
     return (

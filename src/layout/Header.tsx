@@ -16,16 +16,16 @@ export default function Header () {
 
             <nav>
                 <ul className="header__link">
-                    <li>
+                    <li className="header__link__text">
                         Accueil
                     </li>
-                    <li>
+                    <li className="header__link__text">
                         Profil
                     </li>
-                    <li>
+                    <li className="header__link__text">
                         Réglage
                     </li>
-                    <li>
+                    <li className="header__link__text">
                         Communauté
                     </li>
                 </ul>
