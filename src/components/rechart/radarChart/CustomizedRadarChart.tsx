@@ -27,7 +27,7 @@ export default function CustomizedRadarChart (props: { data: {
     ]
 }}) {
     const { data } = props
-    console.log(data)
+    // console.log(data)
     
     // type OnlyKeys = keyof typeof data.kind
 
