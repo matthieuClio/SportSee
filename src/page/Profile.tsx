@@ -58,7 +58,6 @@ export default function Profile () {
 
             // Stock the data (in useSate variable)
             setDataUser(apiData)
-            // console.log(dataUser.apiDataPerformance[0].data)
         }
 
         fetchUserData()

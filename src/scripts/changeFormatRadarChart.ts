@@ -8,14 +8,10 @@ export default function changeFormatRadarChart (data: {
         5: string,
         6: string
     },
-    "data": [
-        {"value": number, "kind": number},
-        {"value": number, "kind": number},
-        {"value": number, "kind": number},
-        {"value": number, "kind": number},
-        {"value": number, "kind": number},
-        {"value": number, "kind": number}
-    ]
+    "data": {
+        "kind": number,
+        "value": number,
+    }[]
 }) {
 
     // Will be the new data format

@@ -17,14 +17,10 @@ export default function CustomizedRadarChart (props: { data: {
         5: string,
         6: string
     },
-    "data": [
-        {"kind": number, "value": number},
-        {"kind": number, "value": number},
-        {"kind": number, "value": number},
-        {"kind": number, "value": number},
-        {"kind": number, "value": number},
-        {"kind": number, "value": number},
-    ]
+    "data": {
+        "kind": number,
+        "value": number,
+    }[]
 }}) {
     const { data } = props
     // console.log(data)
