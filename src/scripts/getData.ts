@@ -3,12 +3,7 @@ import mockData from './mockData'
 
 export default async function getData (idUser:string | undefined) {
 
-    // Use mock data
-    if (idUser === '1') {
-             
-        return mockData
-
-    } else if (idUser === '12' || idUser === '18') {
+    if (idUser === '12' || idUser === '18') {
         // Use API data
 
         // Define an url
@@ -38,7 +33,7 @@ export default async function getData (idUser:string | undefined) {
         return apiData
 
     } else {
-        // Return no data
-        return undefined
+        // Use mock data
+        return mockData
     }
 }

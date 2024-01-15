@@ -10,6 +10,7 @@ export default function mockData () {
                     "id": 1,
                     "userInfos": {"firstName": "MockData", "lastName":"DATA", "age": 31},
                     "todayScore": 0.12,
+                    "score": 0.12, // I added this because some user have no 'todayScore' key but 'score' instead
                     "keyData": {"calorieCount": 1930, "proteinCount": 155, "carbohydrateCount": 290, "lipidCount": 50}
                 },
             }

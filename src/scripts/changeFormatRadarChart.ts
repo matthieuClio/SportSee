@@ -9,12 +9,12 @@ export default function changeFormatRadarChart (data: {
         6: string
     },
     "data": [
-        {"value": number, "kind":number},
-        {"value": number, "kind":number},
-        {"value": number, "kind":number},
-        {"value": number, "kind":number},
-        {"value": number, "kind":number},
-        {"value": number, "kind":number}
+        {"value": number, "kind": number},
+        {"value": number, "kind": number},
+        {"value": number, "kind": number},
+        {"value": number, "kind": number},
+        {"value": number, "kind": number},
+        {"value": number, "kind": number}
     ]
 }) {
 

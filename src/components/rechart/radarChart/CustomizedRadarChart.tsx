@@ -18,20 +18,21 @@ export default function CustomizedRadarChart (props: { data: {
         6: string
     },
     "data": [
-        {"value": number, "kind":number},
-        {"value": number, "kind":number},
-        {"value": number, "kind":number},
-        {"value": number, "kind":number},
-        {"value": number, "kind":number},
-        {"value": number, "kind":number}
+        {"kind": number, "value": number},
+        {"kind": number, "value": number},
+        {"kind": number, "value": number},
+        {"kind": number, "value": number},
+        {"kind": number, "value": number},
+        {"kind": number, "value": number},
     ]
 }}) {
     const { data } = props
+    console.log(data)
     
     // type OnlyKeys = keyof typeof data.kind
 
     // Defined specific object format
-    const radarChartData: Array<object> = data && changeFormatRadarChart(data)
+    const radarChartData: { subject: number, A: string, fullMark: number }[] = data && changeFormatRadarChart(data)
     
     return data && (
         <RadarChart

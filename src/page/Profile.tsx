@@ -28,35 +28,17 @@ import './profile.scss'
 
 // Script
 import getData from '../scripts/getData'
+import mockData from '../scripts/mockData'
 
 export default function Profile () {
-    // Hook state
-    const [dataUser, setDataUser]: any = useState(false)
+
+    // Hook state initialized with a mock data
+    const [dataUser, setDataUser] = useState(mockData)
+
+    // For make a redirection
     const navigate = useNavigate()
 
-    // useState(
-    //     [
-    //         {
-    //             data: {
-    //                 id: 0,
-    //                 userInfos: {
-    //                     firstName: '',
-    //                     lastName: '',
-    //                     age: 0,
-    //                 },
-    //                 todayScore: 0,
-    //                 keyData: {
-    //                     calorieCount: 0,
-    //                     proteinCount: 0,
-    //                     carbohydrateCount: 0,
-    //                     lipidCount: 0,
-    //                 },
-    //             }
-    //         },
-    //     ]
-    // )
-
-    // From react router
+    // Get react router params
     const { userId }: Params<string> = useParams()
 
     // After the first render
@@ -66,21 +48,17 @@ export default function Profile () {
         async function fetchUserData () {
             
             // Contain data API/mock call
+            // (For see data structure, look the mock -> '../scripts/mockData')
             const apiData = await getData(userId) // getData from '../script/getData'
-            
-            // Make a redirection when we have no data
-            if (apiData === undefined) {
+
+            // Make a redirection when we have no route who will get us data
+            if (userId !== '1' && userId !== '12' && userId !== '18') {
                 navigate('error')
             }
 
-            // - apiData - will contain an object with these keys :
-            // apiDataUser
-            // apiDataActivity
-            // apiDataAverage
-            // apiDataPerformance
-
             // Stock the data (in useSate variable)
             setDataUser(apiData)
+            // console.log(dataUser.apiDataPerformance[0].data)
         }
 
         fetchUserData()
@@ -97,8 +75,8 @@ export default function Profile () {
                     <CustomizedLineChart data={dataUser.apiDataAverage[0].data.sessions} legendContent={RenderLegendLineChart} tooltipContent={CustomizedToltipLineChart}/>
                     <CustomizedRadarChart data={dataUser.apiDataPerformance[0].data} />
                     <CustomizedPieChartAngle 
-                        data={dataUser.apiDataUser[0].data.todayScore ? dataUser.apiDataUser[0].data.todayScore : dataUser.apiDataUser[0].data.score} 
-                        legendContent={RenderLegendPieChart} 
+                        data={dataUser.apiDataUser[0].data.todayScore ? dataUser.apiDataUser[0].data.todayScore : dataUser.apiDataUser[0].data.score}
+                        legendContent={RenderLegendPieChart}
                     />
                 </div>
 
