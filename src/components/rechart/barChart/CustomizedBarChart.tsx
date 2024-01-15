@@ -8,7 +8,7 @@ import './customizedBarChart.scss'
 import changeFormatBarChart from '../../../scripts/changeFormatBarChart'
 
 export default function CustomizedBarChart (props: { 
-                                                data: { day: string }[], 
+                                                data: { day: string, kilogram: number, calories: number }[], 
                                                 legendContent: (props: object) => React.JSX.Element, 
                                                 tooltipContent: (props: object) => React.JSX.Element 
                                             }) {

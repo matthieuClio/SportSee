@@ -7,14 +7,14 @@ import './customizedLineChart.scss'
 // Script
 import changeFormatDataLineChart from '../../../scripts/changeFormatDataLineChart'
 
-export default function CustomizedLineChart (props: { 
-                                                        data: Array<object>, 
+export default function CustomizedLineChart (props: {
+                                                        data: { day: number, sessionLength: number }[],
                                                         legendContent: (props: object) => React.JSX.Element,
                                                         tooltipContent: (props: object) => React.JSX.Element 
                                                     }
                                             ) {
     const { legendContent, tooltipContent } = props
-    let { data }: Record<string, any> = props
+    let { data } = props
 
     // Change data format
     data = changeFormatDataLineChart(data)

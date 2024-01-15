@@ -1,5 +1,8 @@
+// React
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+
+// React router
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 // Style - Fonts

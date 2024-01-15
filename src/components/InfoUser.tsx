@@ -5,7 +5,6 @@ export default function InfosUser (props:
     {backgroundClass: string, urlIcon: string, text: string, unit: string, data: number
 }) {
     const { backgroundClass, urlIcon, text, unit, data } = props
-    console.log(data)
 
     return data && (
         <li className="info-user">

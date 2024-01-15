@@ -1,10 +1,16 @@
-export default function changeFormatDataLineChart (data: Record<string, any>) {
+export default function changeFormatDataLineChart (data: { day: number, sessionLength: number }[]) {
+
+    interface DataSessionsModify {
+        day: number,
+        sessionLength: number,
+        dayToDisplay?: string // New property defined
+    }
 
     // Define the display value
     const days: string[] = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
 
-    // Attribute value to the key object dayToDisplay
-    data.map((element: { dayToDisplay: string }, index: number) => {
+    // Add a new property 'dayToDisplay'
+    data.map((element: DataSessionsModify, index: number) => {
         element.dayToDisplay = days[index]
     })
 

@@ -8,8 +8,8 @@ import './customizedRadarChart.scss'
 import changeFormatRadarChart from "../../../scripts/changeFormatRadarChart"
 
 export default function CustomizedRadarChart (props: { data: {
-    "userId": number,
-    "kind": {
+    userId: number,
+    kind: {
         1: string,
         2: string,
         3: string,
@@ -17,15 +17,12 @@ export default function CustomizedRadarChart (props: { data: {
         5: string,
         6: string
     },
-    "data": {
-        "kind": number,
-        "value": number,
+    data: {
+        kind: number,
+        value: number,
     }[]
 }}) {
     const { data } = props
-    // console.log(data)
-    
-    // type OnlyKeys = keyof typeof data.kind
 
     // Defined specific object format
     const radarChartData: { subject: number, A: string, fullMark: number }[] = data && changeFormatRadarChart(data)

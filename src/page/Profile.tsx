@@ -10,7 +10,7 @@ import CustomizedLineChart from '../components/rechart/lineChart/CustomizedLineC
 import CustomizedRadarChart from '../components/rechart/radarChart/CustomizedRadarChart'
 import CustomizedPieChartAngle from '../components/rechart/radialPieChartAngle/CustomizedPieChartAngle'
 
-// Customized component
+// Customized component for Charts
 // - For CustomizedBarChart -
 import RenderLegendBarChart from '../components/rechart/barChart/customized/RenderLegendBarChart'
 import CustomizedToltipBarChart from '../components/rechart/barChart/customized/CustomizedToltipBarChart'
@@ -20,7 +20,7 @@ import CustomizedToltipLineChart from '../components/rechart/lineChart/customize
 // - For CustomizedPieChartAngle -
 import RenderLegendPieChart from '../components/rechart/radialPieChartAngle/customized/RenderLegendPieChart'
 
-// Component
+// Other component
 import InfosUser from '../components/InfoUser'
 
 // Style
@@ -32,7 +32,7 @@ import mockData from '../scripts/mockData'
 
 export default function Profile () {
 
-    // Hook state initialized with a mock data
+    // Hook state initialized with a mock api data
     const [dataUser, setDataUser] = useState(mockData)
 
     // For make a redirection
@@ -74,6 +74,7 @@ export default function Profile () {
                     <CustomizedLineChart data={dataUser.apiDataAverage[0].data.sessions} legendContent={RenderLegendLineChart} tooltipContent={CustomizedToltipLineChart}/>
                     <CustomizedRadarChart data={dataUser.apiDataPerformance[0].data} />
                     <CustomizedPieChartAngle 
+                        // dataUser can have a different property : 'todayScore' or 'score' (depend of the user data given)
                         data={dataUser.apiDataUser[0].data.todayScore ? dataUser.apiDataUser[0].data.todayScore : dataUser.apiDataUser[0].data.score}
                         legendContent={RenderLegendPieChart}
                     />
@@ -81,7 +82,8 @@ export default function Profile () {
 
                 {/* Performance */}
                 <ul className="profile__container__performance">
-                    {/* Display InfoUser components */}
+                    
+                    {/* InfoUser components */}
                     <InfosUser 
                         backgroundClass={'profile-icon-one'}
                         urlIcon={'/images/icon/fire-icon.svg'}

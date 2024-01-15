@@ -1,6 +1,6 @@
 export default function changeFormatRadarChart (data: {
-    "userId": number,
-    "kind": {
+    userId: number,
+    kind: {
         1: string,
         2: string,
         3: string,
@@ -8,9 +8,9 @@ export default function changeFormatRadarChart (data: {
         5: string,
         6: string
     },
-    "data": {
-        "kind": number,
-        "value": number,
+    data: {
+        kind: number,
+        value: number,
     }[]
 }) {
 
@@ -54,7 +54,7 @@ export default function changeFormatRadarChart (data: {
             fullMark: data.data[i].value
         }
 
-        // Insert in the array
+        // Insert newObject in the array
         dataSpecificFormat.push(newObject)
     }
 
@@ -76,7 +76,7 @@ export default function changeFormatRadarChart (data: {
             // Stock Old index value
             const oldValue = dataSpecificFormat[mainCount]
 
-            // Value ducplicate to the index
+            // Ducplicate value to the index
             dataSpecificFormat.splice(mainCount, 1, dataSpecificFormat[secondaryCount])
 
             // Delete the old duplicate
@@ -85,12 +85,16 @@ export default function changeFormatRadarChart (data: {
             // Add old index value replaced by the new duplicate
             dataSpecificFormat.splice(secondaryCount, 0, oldValue)
 
+            // Increment main count
             mainCount++
+
+            // Reset secondary count
             secondaryCount = 0
         }
+         // Increment secondary count
         secondaryCount++
 
-        // Max loop, Security for exit the loop
+        // Max loop, security for force the exit of the loop
         if (secondaryCount > 200) {
             mainCount = dataSpecificFormat.length
         }
