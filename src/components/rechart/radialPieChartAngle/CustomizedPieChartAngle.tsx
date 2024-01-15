@@ -7,8 +7,6 @@ import './customizedPieChartAngle.scss'
 export default function CustomizedPieChartAngle (props: { data: number, legendContent: () => React.JSX.Element }) {
     const { data, legendContent } = props
 
-    console.log(props)
-
     // Define Cell color
     const colors = ["#FF0000", "#FBFBFB"]
 

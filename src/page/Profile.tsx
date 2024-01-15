@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 
 // React router
-import { Params, useParams } from 'react-router-dom'
+import { Params, useParams, useNavigate } from 'react-router-dom'
 
 // Charts component
 import CustomizedBarChart from '../components/rechart/barChart/CustomizedBarChart'
@@ -32,6 +32,7 @@ import getData from '../scripts/getData'
 export default function Profile () {
     // Hook state
     const [dataUser, setDataUser]: any = useState(false)
+    const navigate = useNavigate()
 
     // useState(
     //     [
@@ -66,6 +67,11 @@ export default function Profile () {
             
             // Contain data API/mock call
             const apiData = await getData(userId) // getData from '../script/getData'
+            
+            // Make a redirection when we have no data
+            if (apiData === undefined) {
+                navigate('error')
+            }
 
             // - apiData - will contain an object with these keys :
             // apiDataUser
@@ -78,7 +84,7 @@ export default function Profile () {
         }
 
         fetchUserData()
-    }, [userId])
+    }, [userId, navigate])
 
     return dataUser && (
         <main className="profile">

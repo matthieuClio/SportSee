@@ -1,13 +1,14 @@
+// Script
 import mockData from './mockData'
 
 export default async function getData (idUser:string | undefined) {
 
     // Use mock data
-    if (idUser === '1') {  
+    if (idUser === '1') {
              
         return mockData
 
-    } else {
+    } else if (idUser === '12' || idUser === '18') {
         // Use API data
 
         // Define an url
@@ -35,5 +36,9 @@ export default async function getData (idUser:string | undefined) {
         }
 
         return apiData
+
+    } else {
+        // Return no data
+        return undefined
     }
 }

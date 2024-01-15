@@ -17,13 +17,21 @@ import Error from './page/Error'
 
 
 const router = createBrowserRouter([
+  // Main route
   {
     path: '/',
     element: <Interface />,
-    errorElement: <>Hello main route</>
+    errorElement: <>
+      <Header />
+      <Menu />
+      <Error />
+    </>
   },
+
+  // Application route
   {
     path: '/app',
+    // Outlet define in end of Menu
     element: <>
       <Header />
       <Menu />
@@ -33,13 +41,14 @@ const router = createBrowserRouter([
         path: 'profil/:userId',
         element: <Profile />
       }
-    ],
-    errorElement: <>
-      <Header />
-      <Menu />
-      <Error />
-    </>
-  }
+    ]
+  },
+  
+  // Error page
+  {
+    path: '/error',
+    element: <Error />
+  },
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

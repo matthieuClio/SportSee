@@ -1,6 +1,6 @@
 export default function Error () {
     return (
-        <div>
+        <div style={{color: 'red'}}>
             Erreur 404
         </div>
     )
