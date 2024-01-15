@@ -1,7 +1,7 @@
-export default function changeFormatBarChart (data: { day: number | string }[]) {
-    
-    data && data.map((element, index) => {
-        element.day = index + 1
+export default function changeFormatBarChart (data: { day: string }[]) {
+
+    data && data.map((element) => {
+        element.day = element.day.slice(-2)
     })
 
     return data

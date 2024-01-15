@@ -8,7 +8,7 @@ import './customizedBarChart.scss'
 import changeFormatBarChart from '../../../scripts/changeFormatBarChart'
 
 export default function CustomizedBarChart (props: { 
-                                                data: { day: number | string }[], 
+                                                data: { day: string }[], 
                                                 legendContent: (props: object) => React.JSX.Element, 
                                                 tooltipContent: (props: object) => React.JSX.Element 
                                             }) {
@@ -44,13 +44,11 @@ export default function CustomizedBarChart (props: {
             <Bar 
                 dataKey="kilogram" 
                 fill="#282D30" 
-                // label={{ position: "top" }} 
                 radius={[10, 10, 0, 0]} 
             />
             <Bar 
                 dataKey="calories" 
                 fill="#E60000" 
-                // label={{ position: "top" }} 
                 radius={[10, 10, 0, 0]} 
             />
         </BarChart>
