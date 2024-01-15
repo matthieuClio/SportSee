@@ -1,3 +1,6 @@
+// React router
+import { Link } from 'react-router-dom'
+
 // Style
 import './header.scss'
 
@@ -20,7 +23,9 @@ export default function Header () {
                         Accueil
                     </li>
                     <li>
-                        Profil
+                        <Link to="profil/1">
+                            <span>Profil</span>
+                        </Link>
                     </li>
                     <li>
                         Réglage

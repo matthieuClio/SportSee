@@ -44,6 +44,15 @@ $headerLink: #FFFFFFFF;
             display: flex;
             justify-content: space-between;
             color: $headerLink;
+
+            // Specific links rules
+            a:link {
+                text-decoration: none;
+            }
+            
+            a {
+                color: white;
+            }
         }
     }
 }
