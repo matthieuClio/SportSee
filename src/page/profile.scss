@@ -19,7 +19,6 @@ $profileInfoBackgroundThree:#FBF6E5;
 
 // Profile Page
 .profile {
-    border: 2px solid orange;
     margin: auto;
     margin-top: 0;
     height: 100%;
@@ -29,18 +28,15 @@ $profileInfoBackgroundThree:#FBF6E5;
     }
 
     &__container {
-        border: 2px solid purple;
         display: flex;
 
         &__chart {
-            border: 2px solid blue;
             display: flex;
             flex-wrap: wrap;
             width: 870px;
         }
 
         &__performance {
-            border: 2px solid green;
             display: flex;
             flex-direction: column;
             justify-content: space-between;

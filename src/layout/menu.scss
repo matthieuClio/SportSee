@@ -4,20 +4,17 @@ $menuText: #FFFFFFFF;
 $menuIcon: #FFFFFFFF;
 
 .main-container {
-    border: 2px solid purple;
     display: flex;
     min-height: 800px;
 
     // Menu class 
     &__menu {
-        border: 2px solid red;
         min-width: 100px;
         background-color: $menuBackground;
         color: $menuText;
         overflow: hidden;
     
         &__container {
-            border: 2Px solid green;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -45,7 +42,6 @@ $menuIcon: #FFFFFFFF;
             &__text {
                 position: absolute;
                 bottom: 100px;
-                border: 2px solid orange;
                 width: 140px;
                 transform: rotate(-90deg);
                 font-size: 12px;

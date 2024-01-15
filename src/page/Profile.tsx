@@ -74,7 +74,7 @@ export default function Profile () {
                     <CustomizedLineChart data={dataUser.apiDataAverage[0].data.sessions} legendContent={RenderLegendLineChart} tooltipContent={CustomizedToltipLineChart}/>
                     <CustomizedRadarChart data={dataUser.apiDataPerformance[0].data} />
                     <CustomizedPieChartAngle 
-                        // dataUser can have a different property : 'todayScore' or 'score' (depend of the user data given)
+                        // 'dataUser' can have a different property : 'todayScore' or 'score' (depend of the user data given)
                         data={dataUser.apiDataUser[0].data.todayScore ? dataUser.apiDataUser[0].data.todayScore : dataUser.apiDataUser[0].data.score}
                         legendContent={RenderLegendPieChart}
                     />
@@ -82,7 +82,7 @@ export default function Profile () {
 
                 {/* Performance */}
                 <ul className="profile__container__performance">
-                    
+
                     {/* InfoUser components */}
                     <InfosUser 
                         backgroundClass={'profile-icon-one'}

@@ -2,7 +2,6 @@
 $infoUserContainer:#FBFBFB;
 
 .info-user {
-    border: 2px solid red;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -11,13 +10,11 @@ $infoUserContainer:#FBFBFB;
     background-color: $infoUserContainer;
     
     &__icon-background {
-        border: 2px solid blue;
         padding: 15px;
         border-radius: 5px;
     }
 
     &__data {
-        border: 2px solid orange;
         display: flex;
         flex-direction: column;
         margin-left: 20px;
