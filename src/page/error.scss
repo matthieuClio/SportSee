@@ -1,0 +1,14 @@
+// - VARIABLES -
+$errorPageColor: #E60000;
+
+// Error page
+.error-page {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 40px;
+    color: $errorPageColor;
+
+    &__code {
+        font-size: 60px;
+    }
+}
