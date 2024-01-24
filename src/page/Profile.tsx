@@ -56,8 +56,8 @@ export default function Profile () {
                 navigate('error')
             }
 
-            // Stock the data (in useSate variable)
-            setDataUser(apiData)
+            // Stock API data if not undefined (in useSate variable)
+            apiData && setDataUser(apiData)
         }
 
         fetchUserData()

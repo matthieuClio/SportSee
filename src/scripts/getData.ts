@@ -1,6 +1,4 @@
 // Script
-import mockData from './mockData'
-
 export default async function getData (idUser:string | undefined) {
 
     if (idUser === '12' || idUser === '18') {
@@ -34,6 +32,6 @@ export default async function getData (idUser:string | undefined) {
 
     } else {
         // Use mock data
-        return mockData
+        return undefined
     }
 }
