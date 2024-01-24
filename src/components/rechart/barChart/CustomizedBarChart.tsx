@@ -37,15 +37,17 @@ export default function CustomizedBarChart (props: {
             <Legend verticalAlign="top" align="right" content={legendContent} />
             <CartesianGrid strokeDasharray="3 3" fillOpacity={0.6} vertical={false} />
             <XAxis dataKey="day" tickLine={false} />
+            {/* Look like the result aren't good */}
             <YAxis dataKey="kilogram" orientation="right" hide={false} includeHidden type="number" tickLine={false} axisLine={false} />
+            {/* Other solution below (add "domain" and defined his values */}
+            {/* <YAxis dataKey="kilogram" domain={[0, 400]} orientation="right" hide={false} includeHidden type="number" tickLine={false} axisLine={false} /> */}
             <Tooltip
                 content={tooltipContent}
             />
-            <Bar 
+            <Bar
                 dataKey="kilogram" 
                 fill="#282D30" 
                 radius={[10, 10, 0, 0]} 
-                maxBarSize={100}
             />
             <Bar 
                 dataKey="calories" 
