@@ -18,7 +18,6 @@ import Interface from './page/Interface'
 import Profile from './page/Profile'
 import Error from './page/Error'
 
-
 const router = createBrowserRouter([
   // Main route
   {

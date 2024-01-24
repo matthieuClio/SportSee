@@ -37,7 +37,7 @@ export default function CustomizedBarChart (props: {
             <Legend verticalAlign="top" align="right" content={legendContent} />
             <CartesianGrid strokeDasharray="3 3" fillOpacity={0.6} vertical={false} />
             <XAxis dataKey="day" tickLine={false} />
-            <YAxis orientation="right" hide={false} includeHidden type="number" tickLine={false} axisLine={false} />
+            <YAxis dataKey="kilogram" orientation="right" hide={false} includeHidden type="number" tickLine={false} axisLine={false} />
             <Tooltip
                 content={tooltipContent}
             />
@@ -45,11 +45,12 @@ export default function CustomizedBarChart (props: {
                 dataKey="kilogram" 
                 fill="#282D30" 
                 radius={[10, 10, 0, 0]} 
+                maxBarSize={100}
             />
             <Bar 
                 dataKey="calories" 
                 fill="#E60000" 
-                radius={[10, 10, 0, 0]} 
+                radius={[10, 10, 0, 0]}
             />
         </BarChart>
     )

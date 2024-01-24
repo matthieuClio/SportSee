@@ -22,7 +22,7 @@ export default async function getData (idUser:string | undefined) {
         const responsePerformance = await fetch(`${url + idUser}/performance`)
         const apiDataPerformance = await responsePerformance.json()
 
-        // An array will contain all API call
+        // An object will contain all API call
         const apiData = {
             apiDataUser: [apiDataUser], 
             apiDataActivity: [apiDataActivity], 
