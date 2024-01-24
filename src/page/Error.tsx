@@ -1,13 +1,17 @@
-import './error.scss'
-
+// React router
 import { useRouteError } from 'react-router';
+
+// Style
+import './error.scss'
 
 export default function Error () {
     // Get error object
     let error = useRouteError() as { status: number }
 
-    // Define an status error if we make a redirection
-    error ? error : error = { status: 404 }
+    // Define an error status if we make a manual redirection
+    if (!error) {
+        error = { status: 404 }
+    }
 
     return (
         <div className="error-page">
